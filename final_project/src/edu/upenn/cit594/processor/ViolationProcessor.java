@@ -1,10 +1,10 @@
-package processor;
+package edu.upenn.cit594.processor;
 
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import data.ViolationData;
+import edu.upenn.cit594.data.ViolationData;
 
 
 public class ViolationProcessor {

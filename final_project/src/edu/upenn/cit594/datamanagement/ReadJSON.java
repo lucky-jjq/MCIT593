@@ -1,8 +1,9 @@
-package datamanagement;
+package edu.upenn.cit594.datamanagement;
 
 import org.json.simple.*;
 import org.json.simple.parser.*;
-import data.ViolationData;
+
+import edu.upenn.cit594.data.ViolationData;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -54,11 +55,14 @@ public class ReadJSON extends DataFile{
 		try {
 			violations = (JSONArray)parser.parse(new FileReader(fileName));
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			System.out.println("Error: the specified input file does not exist or cannot be opened for reading!");
+			System.exit(1);
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("Error: the specified input file does not exist or cannot be opened for reading!");
+			System.exit(1);
 		} catch (ParseException e) {
-			e.printStackTrace();
+			System.out.println("Error: the specified input file does not exist or cannot be opened for reading!");
+			System.exit(1);
 		}
 		// use an iterator to iterate over each element of the array
 		Iterator iter = violations.iterator();

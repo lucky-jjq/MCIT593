@@ -1,6 +1,7 @@
-package processor;
+package edu.upenn.cit594.processor;
 import java.util.*;
-import data.PopData;
+
+import edu.upenn.cit594.data.PopData;
 
 public class PopProcessor {
 	ArrayList<PopData> popData;

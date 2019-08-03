@@ -1,8 +1,9 @@
-package datamanagement;
+package edu.upenn.cit594.datamanagement;
 
 import java.io.*;
 import java.util.*;
-import data.ViolationData;
+
+import edu.upenn.cit594.data.ViolationData;
 
 public class ReadCSV extends DataFile {
 	protected ArrayList<ViolationData> ViolationDataList = new ArrayList<ViolationData>(); 
@@ -72,7 +73,8 @@ public class ReadCSV extends DataFile {
 				}
 			}
 		}catch (FileNotFoundException e) {
-			ViolationDataList = null;
+			System.out.println("Error: the specified input file does not exist or cannot be opened for reading!");
+			System.exit(1);
 		}
 	}
 	
@@ -85,7 +87,7 @@ public class ReadCSV extends DataFile {
 	
 	public static void main(String[] args) {
 		ReadCSV c = new ReadCSV();
-		c.fileName = "parking.csv";
+		c.fileName = "aaa.csv";
 		c.getViolationDataList();
 
 	}
