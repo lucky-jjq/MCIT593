@@ -22,9 +22,9 @@ public class ReadJSON extends DataFile{
 	}
 	
 	protected ViolationData jsonParser(JSONObject violation) {
-		if ( filterZipMissing(violation.get("zip_code").toString()) ){
+		ViolationData vio = new ViolationData();
+		if ( filterZipMissing(violation.get("zip_code").toString()) ){//filter out missing zip code
 			System.out.println(violation.get("zip_code"));
-			ViolationData vio = new ViolationData();
 			vio.date = (String) violation.get("date");
 			Long fine =  (Long) violation.get("fine");
 			vio.fine = Math.toIntExact( fine);
@@ -34,13 +34,15 @@ public class ReadJSON extends DataFile{
 			vio.violationID = (String) vio.violationID;
 			vio.state = (String) violation.get("state");
 			if (filterState(vio.state)) {
-				continue;
+				return null; //filter out state that are not PA
 			}
 			vio.zipCode = (String) violation.get("zip_code");
 			System.out.println(vio);
-			
+			return vio;
+		}else {
+			return null;
 		}
-		return vio;
+		
 	}
 	
 	
@@ -64,11 +66,10 @@ public class ReadJSON extends DataFile{
 		while (iter.hasNext()) {
 			// get the next JSON object
 			JSONObject violation = (JSONObject) iter.next();
-			
-			
-			// use the "get" method to print the value associated with that key
-			ViolationDataList.add(vio);
-
+			ViolationData vio = jsonParser(violation);
+			if (vio!=null) {
+				ViolationDataList.add(vio);
+			}
 		}
 	}
 	
