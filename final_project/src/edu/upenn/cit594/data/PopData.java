@@ -1,6 +1,6 @@
 package edu.upenn.cit594.data;
 
-//test comment
+
 public class PopData {
 	
 	public String zipCode;
