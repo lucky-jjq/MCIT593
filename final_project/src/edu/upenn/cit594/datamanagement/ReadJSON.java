@@ -25,20 +25,19 @@ public class ReadJSON extends DataFile{
 	protected ViolationData jsonParser(JSONObject violation) {
 		ViolationData vio = new ViolationData();
 		if ( filterZipMissing(violation.get("zip_code").toString()) ){//filter out missing zip code
-			System.out.println(violation.get("zip_code"));
+//			System.out.println(violation.get("zip_code"));
 			vio.date = (String) violation.get("date");
 			Long fine =  (Long) violation.get("fine");
 			vio.fine = Math.toIntExact( fine);
 			vio.reason = (String) violation.get("violation");
 			vio.plateNum = (String) violation.get("plate_id");
 			Long violationID = (Long) violation.get("ticket_number");
-			vio.violationID = (String) vio.violationID;
 			vio.state = (String) violation.get("state");
-			if (filterState(vio.state)) {
+			if (!filterState(vio.state)) {
 				return null; //filter out state that are not PA
 			}
 			vio.zipCode = (String) violation.get("zip_code");
-			System.out.println(vio);
+//			System.out.println(vio);
 			return vio;
 		}else {
 			return null;
@@ -67,6 +66,7 @@ public class ReadJSON extends DataFile{
 		// use an iterator to iterate over each element of the array
 		Iterator iter = violations.iterator();
 		// iterate while there are more objects in array
+		int i =0;
 		while (iter.hasNext()) {
 			// get the next JSON object
 			JSONObject violation = (JSONObject) iter.next();
@@ -74,7 +74,9 @@ public class ReadJSON extends DataFile{
 			if (vio!=null) {
 				ViolationDataList.add(vio);
 			}
+			i++;
 		}
+		System.out.println(i);
 	}
 	
 	public ArrayList<ViolationData> getViolationDataList() {

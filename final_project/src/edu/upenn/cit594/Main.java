@@ -46,6 +46,7 @@ public class Main {
 		ReadData d = new ReadData(filearg, vioFileName, popFileName);
 		// write fine.txt
 		ArrayList<ViolationData> vioDataList = d.getViolationDataList();
+		System.out.println("total line is "+vioDataList.size());
 		WriteData writeD = new WriteData();
 		writeD.writeFine(vioDataList);
 		
@@ -60,7 +61,7 @@ public class Main {
 		HashMap<String, Integer> popZipMap = popProp.getPopPerZip();
 		HashMap<String, Double> finePerCap =  vioProp.getFinePerCap(popZipMap);
 		PresentHashMap pres = new PresentHashMap(finePerCap);
-		pres.display();
+//		pres.display();
 
 	}
 
