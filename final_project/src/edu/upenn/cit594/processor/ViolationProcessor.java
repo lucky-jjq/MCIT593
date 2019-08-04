@@ -38,8 +38,8 @@ public class ViolationProcessor {
 			getFinePerZip();
 		}
 		HashMap<String, Double> finePerCap = new HashMap<String, Double>();
-		System.out.printf("The fine for 19107 is %d\n",totalFinePerZip.get("19107"));
-		System.out.printf("The population for 19107 is %d\n",popZipMap.get("19107"));
+//		System.out.printf("The fine for 19107 is %d\n",totalFinePerZip.get("19107"));
+//		System.out.printf("The population for 19107 is %d\n",popZipMap.get("19107"));
 		for (String zipCode : totalFinePerZip.keySet()) {
 			if (!totalFinePerZip.containsKey(zipCode)) { //Per Chris' note on Piazza, 
 				continue;  // if population data doesn't exist for this zipCode in the population.txt, ignore this zipCode. 
@@ -52,7 +52,6 @@ public class ViolationProcessor {
 					Double fineValue = ((double) fine) / ((double) pop);
 					finePerCap.put(zipCode, fineValue); 
 				}
-
 			}	
 		}
 		return finePerCap; 

@@ -44,6 +44,7 @@ public class Main {
 		
 		// read data
 		ReadData d = new ReadData(filearg, vioFileName, popFileName);
+		
 		// write fine.txt
 		ArrayList<ViolationData> vioDataList = d.getViolationDataList();
 		System.out.println("total line is "+vioDataList.size());
