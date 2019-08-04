@@ -62,7 +62,7 @@ public class Main {
 		HashMap<String, Integer> popZipMap = popProp.getPopPerZip();
 		HashMap<String, Double> finePerCap =  vioProp.getFinePerCap(popZipMap);
 		PresentHashMap pres = new PresentHashMap(finePerCap);
-//		pres.display();
+		pres.display();
 
 	}
 
