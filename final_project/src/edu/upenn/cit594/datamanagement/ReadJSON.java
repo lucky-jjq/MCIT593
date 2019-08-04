@@ -28,7 +28,7 @@ public class ReadJSON extends DataFile{
 //			System.out.println(violation.get("zip_code"));
 			vio.date = (String) violation.get("date");
 			Long fine =  (Long) violation.get("fine");
-			vio.fine = Math.toIntExact( fine);
+			vio.fine = Math.toIntExact(fine);
 			vio.reason = (String) violation.get("violation");
 			vio.plateNum = (String) violation.get("plate_id");
 			Long violationID = (Long) violation.get("ticket_number");
@@ -87,9 +87,9 @@ public class ReadJSON extends DataFile{
 	}
 	
 	
-	public static void main(String[] args) {
-		ReadJSON c = new ReadJSON();
-		c.fileName = "parking.json";
-		c.getViolationDataList();
-	}
+//	public static void main(String[] args) {
+//		ReadJSON c = new ReadJSON();
+//		c.fileName = "parking.json";
+//		c.getViolationDataList();
+//	}
 }
