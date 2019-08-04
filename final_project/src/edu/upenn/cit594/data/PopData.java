@@ -3,8 +3,8 @@ package edu.upenn.cit594.data;
 
 public class PopData {
 	
-	String zipCode;
-	int population;
+	public String zipCode;
+	public int population;
 	
 	public PopData() {
 	}

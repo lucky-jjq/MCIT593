@@ -17,11 +17,8 @@ public class Main {
 		}
 		
 		String filearg = args[0];
-		if (filearg == null) {
-			System.out.println("The number of runtime arguments is incorrect");
-			System.exit(1);
-		}
-		if (filearg != "csv" | filearg != "json") {
+		System.out.println(filearg.equals( "csv"));
+		if (!(filearg.equals( "csv") | filearg.equals("json"))) {
 			System.out.println("The first argument is neither csv nor json");
 			System.exit(1);
 		}
@@ -30,8 +27,12 @@ public class Main {
 		String popFileName = args[2];
 		
 		ReadData d = new ReadData(filearg, vioFileName, popFileName);
-		d.getViolationDataList();
+		System.out.println(filearg);
 		
+		System.out.println(vioFileName);
+		
+		d.getViolationDataList();
+		d.getPopulationDataList();
 
 	}
 
