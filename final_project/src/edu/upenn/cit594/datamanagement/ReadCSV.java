@@ -33,7 +33,7 @@ public class ReadCSV extends DataFile {
 			return null;
 		}
 		
-		System.out.println("String length is : "+sSplit.length);
+//		System.out.println("String length is : "+sSplit.length);
 		ViolationData vio = new ViolationData();
 		vio.date = sSplit[0];
 		vio.fine = Integer.parseInt(sSplit[1]);
@@ -44,12 +44,12 @@ public class ReadCSV extends DataFile {
 		vio.zipCode = sSplit[6];
 		
 		if (!filterState(vio.state)) {
-			System.out.printf("%s is not PA\n",vio.state);
+//			System.out.printf("%s is not PA\n",vio.state);
 			return null;
 		}
 		
 		vio.zipCode = sSplit[6];
-		System.out.println(vio);
+//		System.out.println(vio);
 		return vio;
 	}
 	
@@ -57,15 +57,16 @@ public class ReadCSV extends DataFile {
 		if (fileName == null) {
 			ViolationDataList = null;
 		}
+//		System.out.println(fileName);
 		File reviewFile = new File(fileName);
 		try {
 			Scanner violation = new Scanner(reviewFile);
 			while (violation.hasNextLine()) {
 				String s = violation.nextLine();
-				System.out.println(s);
+//				System.out.println(s);
 				if (s!=null & checkValid(s)) {
 					ViolationData vio = csvParser(s);
-					System.out.println(vio);
+//					System.out.println(vio);
 					if (vio == null) {
 						continue;
 					}
@@ -85,11 +86,6 @@ public class ReadCSV extends DataFile {
 		return ViolationDataList;
 	}
 	
-	public static void main(String[] args) {
-		ReadCSV c = new ReadCSV();
-		c.fileName = "aaa.csv";
-		c.getViolationDataList();
 
-	}
 
 }

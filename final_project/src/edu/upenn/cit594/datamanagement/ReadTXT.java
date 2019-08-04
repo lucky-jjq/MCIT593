@@ -32,11 +32,11 @@ public class ReadTXT extends DataFile{
 			return null;
 		}
 		
-		System.out.println("String length is : "+sSplit.length);
+//		System.out.println("String length is : "+sSplit.length);
 		PopData pop = new PopData();
 		pop.zipCode = sSplit[0];
 		pop.population = Integer.parseInt(sSplit[1]);
-		System.out.println(pop);
+//		System.out.println(pop);
 		return pop;
 	}
 	
@@ -50,10 +50,10 @@ public class ReadTXT extends DataFile{
 			Scanner population = new Scanner(reviewFile);
 			while (population.hasNextLine()) {
 				String s = population.nextLine();
-				System.out.println(s);
+//				System.out.println(s);
 				if (s!=null & checkValid(s)) {
 					PopData pop = txtParser(s);
-					System.out.println(pop);
+//					System.out.println(pop);
 					if (pop == null) {
 						continue;
 					}
@@ -72,11 +72,5 @@ public class ReadTXT extends DataFile{
 		}
 		return popDataList;
 	}
-	
-	public static void main(String[] args) {
-		ReadTXT c = new ReadTXT();
-		c.fileName = "aaa.txt";
-		c.getPopulationDataList();
 
-	}
 }

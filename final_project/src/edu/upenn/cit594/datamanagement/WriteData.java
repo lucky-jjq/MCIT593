@@ -14,7 +14,7 @@ public class WriteData {
             File file = new File(fileName);
             BufferedWriter writer = new BufferedWriter(new FileWriter(file));
             for (ViolationData vio: vioData) {
-            	System.out.println(vio.zipCode);
+//            	System.out.println(vio.zipCode);
             	writer.write(vio.zipCode);
             	writer.write(" ");
             	writer.write(Integer.toString(vio.fine));
