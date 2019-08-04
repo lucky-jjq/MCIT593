@@ -22,12 +22,10 @@ public class ReadData{
 	public ArrayList<ViolationData> getViolationDataList() {
 		if (extension.equals("csv")) {
 			//System.out.println("processing...");
-			 ReadCSV d = new ReadCSV();
-			 d.fileName = vioFileName;
+			 ReadCSV d = new ReadCSV(vioFileName);
 			 return d.getViolationDataList();
 		} else if (extension.equals("json")){
-			 ReadJSON d = new ReadJSON();
-			 d.fileName = vioFileName;
+			 ReadJSON d = new ReadJSON(vioFileName);
 			 return d.getViolationDataList();
 		} 
 		return null;
@@ -35,8 +33,7 @@ public class ReadData{
 	
 	
 	public ArrayList<PopData> getPopulationDataList() {
-		 ReadTXT d = new ReadTXT();
-		 d.fileName = popFileName;
+		 ReadTXT d = new ReadTXT(popFileName);
 		 return d.getPopulationDataList();
 	}
 	

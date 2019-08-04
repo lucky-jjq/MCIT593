@@ -12,7 +12,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class ReadJSON extends DataFile{
+	public ReadJSON(String filename) {
+		super(filename);
+	}
+
 	protected ArrayList<ViolationData> ViolationDataList = new ArrayList<ViolationData>(); 
+	
+
 	
 	protected boolean filterState(String state) {
 		return state.toUpperCase().equals( "PA");

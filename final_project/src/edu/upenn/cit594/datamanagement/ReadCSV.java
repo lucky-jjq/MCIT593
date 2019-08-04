@@ -6,7 +6,12 @@ import java.util.*;
 import edu.upenn.cit594.data.ViolationData;
 
 public class ReadCSV extends DataFile {
+	public ReadCSV(String filename) {
+		super(filename);
+	}
+
 	protected ArrayList<ViolationData> ViolationDataList = new ArrayList<ViolationData>(); 
+	
 	
 	private static boolean checkValid(String s) {
 		if (s == null) {

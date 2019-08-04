@@ -8,6 +8,10 @@ import java.util.Scanner;
 import edu.upenn.cit594.data.PopData;
 
 public class ReadTXT extends DataFile{
+	public ReadTXT(String filename) {
+		super(filename);
+	}
+
 	protected ArrayList<PopData> popDataList = new ArrayList<PopData>(); 
 	
 	private static boolean checkValid(String s) {
