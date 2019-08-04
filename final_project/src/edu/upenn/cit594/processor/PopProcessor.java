@@ -27,14 +27,5 @@ public class PopProcessor {
 		return popPerZip;
 	}
 	
-	////// Should probably move this to data management package? 
-	//void writeHash(HashMap<String, Integer> p) {
-		// write hashmap
-	//}
-	
-    //////Should probably move this to data management package? 
-	//void writePopPerZip() {
-	//	writeHash(popPerZip);
-	//}
 
 }

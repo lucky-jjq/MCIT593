@@ -2,7 +2,8 @@ package edu.upenn.cit594.datamanagement;
 
 import java.io.*;
 import java.util.ArrayList;
-import edu.upenn.cit594.data.PopData;
+import java.util.HashMap;
+
 import edu.upenn.cit594.data.ViolationData;
 
 public class WriteData {
@@ -25,6 +26,12 @@ public class WriteData {
         	System.out.println("Somthing is wrong, unable to write to file");
             e.printStackTrace();
         }
+	}
+	
+	public void writeTotalFinePerZip(HashMap<String, Integer> totalFineZip) {
+		String fileName = "total.txt";
+		WriteHashMap totalWrite = new WriteHashMap(totalFineZip, fileName);
+		totalWrite.write();
 	}
 	
 

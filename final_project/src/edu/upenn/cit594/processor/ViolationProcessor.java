@@ -16,7 +16,7 @@ public class ViolationProcessor {
 	}
 
 	//Generates a hashmap of zipCode and the total fine amount in that zipCode 
-	HashMap<String, Integer> totalFinePerZip(){
+	public HashMap<String, Integer> getFinePerZip(){
 		
 		for (int i = 0; i < vioData.size(); i++) {
 			String zipCode = vioData.get(i).getZipCode(); 
@@ -32,7 +32,29 @@ public class ViolationProcessor {
 		return totalFinePerZip;
 	}
 	
-	
+	//Generates a hashmap of zipCode and fines per capita for that zipCode 
+	public HashMap<String, Double> getFinePerCap(HashMap<String, Integer> popZipMap) {
+		HashMap<String, Integer> fineZipMap = getFinePerZip();
+		HashMap<String, Double> finePerCap = new HashMap<String, Double>();
+		
+		for (String zipCode : fineZipMap.keySet()) {
+			if (!fineZipMap.containsKey(zipCode)) { //Per Chris' note on Piazza, 
+				continue;  // if population data doesn't exist for this zipCode in the population.txt, ignore this zipCode. 
+			} else {
+				Integer fine = fineZipMap.get(zipCode);
+				System.out.println("The fine for "+zipCode+"is "+fine);
+				Integer pop  = popZipMap.get(zipCode);
+				System.out.println("The population for "+zipCode+"is "+pop);
+				if (fine!=null && pop!=null) {
+					Double fineValue = ((double) fine) / ((double) pop);
+					finePerCap.put(zipCode, fineValue); 
+				}
+
+			}	
+		}
+		return finePerCap; 
+		
+	}
 
 	
 }

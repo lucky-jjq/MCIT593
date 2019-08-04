@@ -1,12 +1,14 @@
 package edu.upenn.cit594;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import edu.upenn.cit594.data.ViolationData;
 import edu.upenn.cit594.datamanagement.ReadData;
 import edu.upenn.cit594.datamanagement.WriteData;
 import edu.upenn.cit594.processor.PopProcessor;
 import edu.upenn.cit594.processor.ViolationProcessor;
+import edu.upenn.cit594.ui.PresentHashMap;
 
 public class Main {
 	
@@ -32,12 +34,11 @@ public class Main {
 	}
 	
 	public static void main(String[] args) {
-
+		// get args from config
 		checkNull(args);
 		checkLen(args);
 		String filearg = args[0];
 		checkExtention(filearg);
-		
 		String vioFileName = args[1];
 		String popFileName = args[2];
 		
@@ -49,14 +50,17 @@ public class Main {
 		writeD.writeFine(vioDataList);
 		
 		// process data
-//		PopProcessor popProp  = new PopProcessor(d.getPopulationDataList());
-//		ViolationProcessor vioProp = new ViolationProcessor(vioDataList);
+		PopProcessor popProp  = new PopProcessor(d.getPopulationDataList());
+		ViolationProcessor vioProp = new ViolationProcessor(vioDataList);
 		
-		// write data
+		// write total fine per zipcode
+		writeD.writeTotalFinePerZip(vioProp.getFinePerZip());
 		
-		
-		// print data
-		
+		// Display fine per capita in display
+		HashMap<String, Integer> popZipMap = popProp.getPopPerZip();
+		HashMap<String, Double> finePerCap =  vioProp.getFinePerCap(popZipMap);
+		PresentHashMap pres = new PresentHashMap(finePerCap);
+		pres.display();
 
 	}
 
