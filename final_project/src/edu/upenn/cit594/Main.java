@@ -1,38 +1,62 @@
 package edu.upenn.cit594;
 
+import java.util.ArrayList;
+
+import edu.upenn.cit594.data.ViolationData;
 import edu.upenn.cit594.datamanagement.ReadData;
+import edu.upenn.cit594.datamanagement.WriteData;
+import edu.upenn.cit594.processor.PopProcessor;
+import edu.upenn.cit594.processor.ViolationProcessor;
 
 public class Main {
 	
-	
-	
-	public static void main(String[] args) {
+	protected static void checkNull (String[] args) {
 		if (args == null) {
 			System.out.println("The number of runtime arguments is incorrect");
 			System.exit(1);
 		}
+	}
+	
+	protected static void checkLen (String[] args) {
 		if (args.length !=3) {
 			System.out.println("The number of runtime arguments is incorrect");
 			System.exit(1);
 		}
-		
-		String filearg = args[0];
-		System.out.println(filearg.equals( "csv"));
+	}
+	
+	protected static void checkExtention (String filearg) {
 		if (!(filearg.equals( "csv") | filearg.equals("json"))) {
 			System.out.println("The first argument is neither csv nor json");
 			System.exit(1);
 		}
+	}
+	
+	public static void main(String[] args) {
+
+		checkNull(args);
+		checkLen(args);
+		String filearg = args[0];
+		checkExtention(filearg);
 		
 		String vioFileName = args[1];
 		String popFileName = args[2];
 		
+		// read data
 		ReadData d = new ReadData(filearg, vioFileName, popFileName);
-		System.out.println(filearg);
+		// write fine.txt
+		ArrayList<ViolationData> vioDataList = d.getViolationDataList();
+		WriteData writeD = new WriteData();
+		writeD.writeFine(vioDataList);
 		
-		System.out.println(vioFileName);
+		// process data
+//		PopProcessor popProp  = new PopProcessor(d.getPopulationDataList());
+//		ViolationProcessor vioProp = new ViolationProcessor(vioDataList);
 		
-		d.getViolationDataList();
-		d.getPopulationDataList();
+		// write data
+		
+		
+		// print data
+		
 
 	}
 

@@ -11,17 +11,9 @@ public class ViolationProcessor {
 	ArrayList<ViolationData> vioData;
 	HashMap<String, Integer> totalFinePerZip = new HashMap<String, Integer>();
 	
-	ViolationProcessor(){
-
+	public ViolationProcessor(ArrayList<ViolationData> vioData){
+		this.vioData = vioData;
 	}
-	
-	///////Should move this to data managment package
-	void writeFine () {
-		// iterate array of viodata, 
-		// write viodata.zip, viodata.fine
-		// to a txt file
-	}
-	
 
 	//Generates a hashmap of zipCode and the total fine amount in that zipCode 
 	HashMap<String, Integer> totalFinePerZip(){

@@ -7,11 +7,12 @@ public class PopProcessor {
 	ArrayList<PopData> popData;
 	HashMap<String, Integer> popPerZip = new HashMap<String, Integer>();
 	
-	PopProcessor(){
+	public PopProcessor(ArrayList<PopData> popData){
+		this.popData=popData;
 	}
 	
 	//Generates a hashmap of zipCode and the total population in that zipCode. 
-	HashMap<String, Integer> getPopPerZip(){
+	public HashMap<String, Integer> getPopPerZip(){
 		for (int i = 0; i < popData.size(); i++) {
 			String zipCode = popData.get(i).getZipCode(); 
 			int population = popData.get(i).getPopulation();
