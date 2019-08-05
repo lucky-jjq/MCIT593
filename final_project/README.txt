@@ -17,6 +17,10 @@ json parking.json population.txt
 The program produces three outputs: 
 fines.txt (individual parking violation's zipcode and fine amount)
 total.txt (total fines per zip code)
-prints fines per capita per zipcode to the screen
+prints fines per capita per zipcode (ascending order) to the screen
+
+Note: 
+Fines per capita is defined as total fines/ population in each individual zipcode. But some zipcodes lack population data. 
+Therefore, the last output (fines per capita) only prints out those zipcodes that have population data.
 
 END

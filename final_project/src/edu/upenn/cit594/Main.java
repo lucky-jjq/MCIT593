@@ -2,6 +2,7 @@ package edu.upenn.cit594;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.SortedSet;
 
 import edu.upenn.cit594.data.ViolationData;
 import edu.upenn.cit594.datamanagement.ReadData;
@@ -47,7 +48,7 @@ public class Main {
 		
 		// write fine.txt
 		ArrayList<ViolationData> vioDataList = d.getViolationDataList();
-		System.out.println("total line is "+vioDataList.size());
+		System.out.println("total line is " + vioDataList.size());
 		WriteData writeD = new WriteData();
 		writeD.writeFine(vioDataList);
 		
@@ -61,7 +62,10 @@ public class Main {
 		// Display fine per capita in display
 		HashMap<String, Integer> popZipMap = popProp.getPopPerZip();
 		HashMap<String, Double> finePerCap =  vioProp.getFinePerCap(popZipMap);
-		PresentHashMap pres = new PresentHashMap(finePerCap);
+		
+		SortedSet<String> zipSet = vioProp.getSortedZip();
+		PresentHashMap<String, Double> pres = new PresentHashMap<String, Double>(finePerCap, zipSet);
+		
 		pres.display();
 
 	}

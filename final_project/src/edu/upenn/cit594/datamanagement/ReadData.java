@@ -21,7 +21,6 @@ public class ReadData{
 	
 	public ArrayList<ViolationData> getViolationDataList() {
 		if (extension.equals("csv")) {
-			//System.out.println("processing...");
 			 ReadCSV d = new ReadCSV(vioFileName);
 			 return d.getViolationDataList();
 		} else if (extension.equals("json")){

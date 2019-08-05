@@ -3,13 +3,17 @@ package edu.upenn.cit594.processor;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 import edu.upenn.cit594.data.ViolationData;
 
 
-public class ViolationProcessor {
+public class ViolationProcessor { 
 	ArrayList<ViolationData> vioData;
 	HashMap<String, Integer> totalFinePerZip = new HashMap<String, Integer>();
+	HashMap<String, Double> finePerCap = new HashMap<String, Double>();
+	SortedSet<String> sortedZipSet = new TreeSet<String>(); 
 	
 	public ViolationProcessor(ArrayList<ViolationData> vioData){
 		this.vioData = vioData;
@@ -37,9 +41,6 @@ public class ViolationProcessor {
 		if (totalFinePerZip.isEmpty()) {
 			getFinePerZip();
 		}
-		HashMap<String, Double> finePerCap = new HashMap<String, Double>();
-//		System.out.printf("The fine for 19107 is %d\n",totalFinePerZip.get("19107"));
-//		System.out.printf("The population for 19107 is %d\n",popZipMap.get("19107"));
 		for (String zipCode : totalFinePerZip.keySet()) {
 			if (!totalFinePerZip.containsKey(zipCode)) { //Per Chris' note on Piazza, 
 				continue;  // if population data doesn't exist for this zipCode in the population.txt, ignore this zipCode. 
@@ -55,8 +56,14 @@ public class ViolationProcessor {
 			}	
 		}
 		return finePerCap; 
-		
 	}
 
+	//Builds a set that stores zipCode in order
+	public SortedSet<String> getSortedZip() {
+		for (String zipKey : finePerCap.keySet()) {
+			sortedZipSet.add(zipKey); 
+		}	
+		return sortedZipSet;	
+	}
 	
 }
