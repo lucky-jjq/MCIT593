@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.SortedSet;
 
 public class PresentHashMap<E,V> {
+	// Display HashMap in the console
 	HashMap<E, V> hashM;
 	SortedSet<E> zipSet; 
 	

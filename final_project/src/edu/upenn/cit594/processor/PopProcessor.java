@@ -4,6 +4,7 @@ import java.util.*;
 import edu.upenn.cit594.data.PopData;
 
 public class PopProcessor {
+	// process population info
 	ArrayList<PopData> popData;
 	HashMap<String, Integer> popPerZip = new HashMap<String, Integer>();
 	

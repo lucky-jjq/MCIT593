@@ -10,6 +10,7 @@ import edu.upenn.cit594.data.ViolationData;
 
 
 public class ViolationProcessor { 
+	// process violation
 	ArrayList<ViolationData> vioData;
 	HashMap<String, Integer> totalFinePerZip = new HashMap<String, Integer>();
 	HashMap<String, Double> finePerCap = new HashMap<String, Double>();

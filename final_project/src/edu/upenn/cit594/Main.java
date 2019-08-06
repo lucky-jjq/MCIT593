@@ -48,7 +48,6 @@ public class Main {
 		
 		// write fine.txt
 		ArrayList<ViolationData> vioDataList = d.getViolationDataList();
-		System.out.println("total line is " + vioDataList.size());
 		WriteData writeD = new WriteData();
 		writeD.writeFine(vioDataList);
 		

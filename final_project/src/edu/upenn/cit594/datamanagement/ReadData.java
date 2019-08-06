@@ -6,6 +6,7 @@ import edu.upenn.cit594.data.PopData;
 import edu.upenn.cit594.data.ViolationData;
 
 public class ReadData{
+	// Read data no matter what is the extension
 	protected ArrayList<ViolationData> ViolationDataList = new ArrayList<ViolationData>(); 
 	protected ArrayList<PopData> PopulationDataList = new ArrayList<PopData>(); 
 	String extension;

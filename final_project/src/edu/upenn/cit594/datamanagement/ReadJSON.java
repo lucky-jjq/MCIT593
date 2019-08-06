@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class ReadJSON extends DataFile{
+	// Read Jason files
 	public ReadJSON(String filename) {
 		super(filename);
 	}
@@ -82,7 +83,6 @@ public class ReadJSON extends DataFile{
 			}
 			i++;
 		}
-		System.out.println(i);
 	}
 	
 	public ArrayList<ViolationData> getViolationDataList() {

@@ -6,6 +6,7 @@ import java.util.*;
 import edu.upenn.cit594.data.ViolationData;
 
 public class ReadCSV extends DataFile {
+	// Read CSV files
 	public ReadCSV(String filename) {
 		super(filename);
 	}

@@ -8,6 +8,7 @@ import java.util.Scanner;
 import edu.upenn.cit594.data.PopData;
 
 public class ReadTXT extends DataFile{
+	// Read TXT files
 	public ReadTXT(String filename) {
 		super(filename);
 	}
