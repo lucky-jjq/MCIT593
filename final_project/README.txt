@@ -1,6 +1,8 @@
 README
 
-The program follows the N-tier design architecture and has the following five components: 
+Group project by JJ Qian and Xunjing Wu
+
+The Parking Data Analyzer program follows the N-tier design architecture and has the following five components: 
 - Data: this builds the population object and the violation object. 
 - Data Management: this handles all the reading and writing to files. This also includes parsing data and filtering out non-PA and empty-zipcode data.  
 - Processor: this performs all the analysis on the data, including calculating total fines and fines per capita for each zipcode. 
